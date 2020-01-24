@@ -83,6 +83,7 @@ public class StateSpace implements GoalTest, ActionsFunction, ResultFunction{
     
     @Override
     public Object result(Object o, Action action){
+
         State state = (State) o;
         Move move = (Move) action;
         State result;

@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/tor/aima-core.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/aima-core.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
