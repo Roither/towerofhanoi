@@ -11,16 +11,16 @@ import aima.core.agent.Action;
  * @author erich
  */
 public class Move implements Action{
-    public int disk;
-    public int rod;
+    public int srcRod;
+    public int dstRod;
     
-    public Move(int disk, int rod){
-        this.disk = disk;
-        this.rod = rod;
+    public Move(int srcRod, int dstRod){
+        this.srcRod = srcRod;
+        this.dstRod = dstRod;
     }
     
     @Override
     public boolean isNoOp(){
-        return false;
+        return srcRod == dstRod;
     }
 }

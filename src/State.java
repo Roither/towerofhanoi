@@ -8,7 +8,7 @@
  *
  * @author erich
  */
-public class State {
+public class State implements Cloneable {
     public int[][] rods;
     
     public State(int[][] rods) {        
@@ -19,5 +19,28 @@ public class State {
             }
         }
     }
-    
+
+    public State clone(){
+        return new State(this.rods);
+    }
+
+    public String toString(){
+
+        String output = "";
+
+        for(int i =0; i < this.rods.length; i++){
+            output +="[";
+            for(int j = 0; j < this.rods[i].length; j++){
+                output += this.rods[i][j];
+            }
+            output +="]";
+        }
+
+        return output;
+    }
+
+    public boolean equals(Object o){
+        System.out.println("ad");
+        return super.equals(o);
+    }
 }
