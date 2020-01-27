@@ -22,7 +22,7 @@ public class Main {
         // TODO code application logic here
         BreadthFirstSearch solver = new BreadthFirstSearch();
         //DepthFirstSearch solver = new DepthFirstSearch(new GraphSearch());
-        int[][] s = {{3,2,1},{0,0,0},{0,0,0}};
+        int[][] s = {{3,2,1},{0,0,0},{0,0,0},{0,0,0}};
         State start = new State(s);
         StateSpace space = new StateSpace();
         /*
@@ -37,12 +37,12 @@ public class Main {
         List steps = solver.search(p);
 
         System.out.println("Steps to result:");
-        System.out.println("Start with: " + start);
+        System.out.format("Start with: %n" + start.toString());
         for(int i = 0; i<steps.size();i++) {
             Move step = (Move) steps.get(i);
             System.out.format("Rod %d to Rod %d%n",step.srcRod,step.dstRod);
             start = (State)space.result(start,step);
-            System.out.println(start);
+            System.out.format(start.toString());
         }
 
         System.out.println(solver.getMetrics());
