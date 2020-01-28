@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import javax.swing.*;
+
 /**
  *
  * @author erich
@@ -27,20 +29,26 @@ public class State implements Cloneable {
     public String toString(){
 
         String output = "";
+        String sign = "_";
 
-        for(int i =0; i < this.rods.length; i++){
-            output +="[";
-            for(int j = 0; j < this.rods[i].length; j++){
-                output += this.rods[i][j];
+        for(int j = this.rods[0].length-1;j>=0; j--) {
+            for (int i = 0; i < this.rods.length; i++) {
+                if(this.rods[i][j]>0)
+                    output += this.centerString(5,sign.repeat(this.rods[i][j]*2-1));
+                else
+                    output += this.centerString(5,"|");
             }
-            output +="]";
+            output += "%n";
         }
 
-        return output;
+        return String.format(output);
     }
 
     public boolean equals(Object o){
-        System.out.println("ad");
         return super.equals(o);
+    }
+
+    private static String centerString (int width, String s) {
+        return String.format("%-" + width  + "s", String.format("%" + (s.length() + (width - s.length()) / 2) + "s", s));
     }
 }
