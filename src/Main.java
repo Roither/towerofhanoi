@@ -37,12 +37,13 @@ public class Main {
         List steps = solver.search(p);
 
         System.out.println("Steps to result:");
-        System.out.format("Start with: %n" + start.toString());
+        System.out.println("Start with:");
+        System.out.println(start);
         for(int i = 0; i<steps.size();i++) {
             Move step = (Move) steps.get(i);
             System.out.format("Rod %d to Rod %d%n",step.srcRod,step.dstRod);
             start = (State)space.result(start,step);
-            System.out.format(start.toString());
+            System.out.println(start);
         }
 
         System.out.println(solver.getMetrics());

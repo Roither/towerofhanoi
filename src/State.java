@@ -27,44 +27,28 @@ public class State implements Cloneable {
     }
 
     public String toString(){
-            String output = "";
 
+        String output = "";
+        String sign = "_";
 
-            for(int rod_h = this.rods[0].length-1 ;rod_h>=0;rod_h--) {
-               for (int i = 0; i < this.rods.length; i++) {
-                   String count;
-                   switch (this.rods[i][rod_h]) {
-                       case 1:
-                           count = "_";
-                           break;
-                       case 2:
-                           count = "___";
-                           break;
-                       case 3:
-                           count = "_____";
-                           break;
-                       default:
-                           count = "";
-                   }
-                    output += this.centerString(5,count);
-               }
-               output += "%n";
+        for(int j = this.rods[0].length-1;j>=0; j--) {
+            for (int i = 0; i < this.rods.length; i++) {
+                if(this.rods[i][j]>0)
+                    output += this.centerString(5,sign.repeat(this.rods[i][j]*2-1));
+                else
+                    output += this.centerString(5,"|");
             }
-/*        System.out.println(this.centerString(5,"_"));
-        System.out.println(this.centerString(5,"___"));
-        System.out.println(this.centerString(5,"_____"));
-*/
+            output += "%n";
+        }
 
-            return output;
-
+        return String.format(output);
     }
 
     public boolean equals(Object o){
-        System.out.println("ad");
         return super.equals(o);
     }
 
-    private String centerString (int width, String s) {
+    private static String centerString (int width, String s) {
         return String.format("%-" + width  + "s", String.format("%" + (s.length() + (width - s.length()) / 2) + "s", s));
     }
 }
